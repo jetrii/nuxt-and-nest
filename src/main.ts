@@ -5,14 +5,18 @@ import { Builder, Nuxt } from "nuxt";
 
 async function bootstrap() {
   const nuxt = await new Nuxt(config);
+  const app = await NestFactory.create(AppModule);
+
+  await app.setGlobalPrefix("api");
+  await app.use(nuxt.render);
+
   config.dev = !(process.env.NODE_ENV === "production");
+
   if (config.dev) {
     await new Builder(nuxt).build();
   }
-  const app = await NestFactory.create(AppModule);
-  await app.setGlobalPrefix("api");
+
   await app.listen(3000, () => console.log("Application is listening on port 3000."));
-  await app.use(nuxt.render);
 }
 
 bootstrap();
