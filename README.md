@@ -1,8 +1,4 @@
-# socialscud
-
-## Description
-
-SocialScud application
+# NuxtJS and NestJS
 
 ## Installation
 
