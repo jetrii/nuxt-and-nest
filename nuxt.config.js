@@ -18,7 +18,7 @@ module.exports = {
       process.env.BASE_URL ||
       `http://${host}:${port}`
   },
-  srcDir: './client/',
+  srcDir: './src/client/',
   head: {
     title: "tt1",
     meta: [
